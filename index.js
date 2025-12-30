@@ -100,10 +100,4 @@ io.on("connection", socket => {
   });
 });
 
-// Serve client static build for LAN hosting if present
-const path = require('path');
-const clientBuild = path.join(__dirname, '..', 'client', 'dist');
-app.use(express.static(clientBuild));
-app.get('*', (req, res) => res.sendFile(path.join(clientBuild, 'index.html')));
-
 server.listen(4000, '0.0.0.0', () => console.log("Server running on 0.0.0.0:4000"));
